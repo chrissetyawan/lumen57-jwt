@@ -48,20 +48,20 @@ $api->version('v1', [
         'uses' => 'UserController@show',
     ]);
 
-    // POST
-    // post list
+    // CHECKLIST
+    // checklist list
     $api->get('checklists', [
         'as' => 'checklists.index',
         'uses' => 'ChecklistController@index',
     ]);
-    // post detail
+    // checklist detail
     $api->get('checklists/{id}', [
         'as' => 'checklists.show',
         'uses' => 'ChecklistController@show',
     ]);
 
-    // POST COMMENT
-    // post comment list
+    // checklist COMMENT
+    // checklist item list
     $api->get('checklists/{checklistId}/items', [
         'as' => 'checklists.items.index',
         'uses' => 'ItemController@index',
@@ -99,34 +99,34 @@ $api->version('v1', [
             'uses' => 'UserController@editPassword',
         ]);
 
-        // POST
-        // user's posts index
+        // checklist
+        // user's checklists index
         $api->get('user/checklists', [
             'as' => 'user.checklists.index',
             'uses' => 'ChecklistController@userIndex',
         ]);
-        // create a post
+        // create a checklist
         $api->post('checklists', [
             'as' => 'checklists.store',
             'uses' => 'ChecklistController@store',
         ]);
-        // update a post
+        // update a checklist
         $api->put('checklists/{id}', [
             'as' => 'checklists.update',
             'uses' => 'ChecklistController@update',
         ]);
-        // update part of a post
+        // update part of a checklist
         $api->patch('checklists/{id}', [
             'as' => 'checklists.patch',
             'uses' => 'ChecklistController@patch',
         ]);
-        // delete a post
+        // delete a checklist
         $api->delete('checklists/{id}', [
             'as' => 'checklists.destroy',
             'uses' => 'ChecklistController@destroy',
         ]);
 
-        // CHECKLISTS COMMENT
+        // CHECKLISTS ITEMS
         // create a items
         $api->post('checklists/{checklistId}/items', [
             'as' => 'checklists.items.store',
