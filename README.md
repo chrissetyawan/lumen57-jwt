@@ -18,6 +18,11 @@ $ vim .env
 
 $ php artisan migrate
 $ php artisan db:seed
+$ php -S localhost:8000 -t ./public
+
+User credential :
+email : random generate when seeding, please check database
+pass : 123456
 
 ```
 
@@ -26,19 +31,23 @@ $ php artisan db:seed
 
 ```
     demo： user, checklist, item
-    get    /api/checklists              	 checklist index
-    post   /api/checklists              	 create a checklist
-    get    /api/checklists/5            	 checklist detail
-    put    /api/checklists/5            	 replace a checklist
-    patch  /api/checklists/5            	 update part of a checklist
-    delete /api/checklists/5            	 delete a checklist
-    get    /api/checklists/5/items     		 item list of a checklist
-    post   /api/checklists/5/items         add a item
-    get    /api/checklists/5/items/8       item detail
-    put    /api/checklists/5/items/8       replace a item
-    patch  /api/checklists/5/items/8       update part of a item
-    delete /api/checklists/5/items/8       delete a item
-    get    /api/users/4/checklists         checklist of a user
-    get    /api/user/checklists            checklist of current user
+    
+    post   /api/login              	 	login
+    delete /api/logout            	 	logout
+    
+    get    /api/checklists              	checklist index
+    post   /api/checklists              	create a checklist
+    get    /api/checklists/5            	checklist detail
+    put    /api/checklists/5            	replace a checklist
+    patch  /api/checklists/5            	update part of a checklist
+    delete /api/checklists/5            	delete a checklist
+    get    /api/checklists/5/items     		item list of a checklist
+    post   /api/checklists/5/items         	add a item
+    get    /api/checklists/5/items/8       	item detail
+    put    /api/checklists/5/items/8       	replace a item
+    patch  /api/checklists/5/items/8       	update part of a item
+    delete /api/checklists/5/items/8       	delete a item
+    get    /api/users/4/checklists         	checklist of a user
+    get    /api/user/checklists            	checklist of current user
 ```
 
