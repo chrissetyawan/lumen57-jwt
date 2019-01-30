@@ -46,7 +46,7 @@ class ChecklistController extends BaseController
         $attributes['user_id'] = $this->user()->id;
         $item = Checklist::create($attributes);
 
-        $location = dingo_route('v1', 'posts.show', $item->id);
+        $location = dingo_route('v1', 'checklists.show', $item->id);
         return $this->response
             ->item($item, new ChecklistTransformer())
             //->withHeader('Location', $location)

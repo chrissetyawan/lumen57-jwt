@@ -127,6 +127,11 @@ $api->version('v1', [
         ]);
 
         // CHECKLISTS ITEMS
+        // get a item
+        $api->get('checklists/{checklistId}/items/{id}', [
+            'as' => 'checklists.items.show',
+            'uses' => 'ItemController@show',
+        ]);
         // create a items
         $api->post('checklists/{checklistId}/items', [
             'as' => 'checklists.items.store',

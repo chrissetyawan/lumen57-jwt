@@ -20,7 +20,7 @@ class Item extends BaseModel
             $item->checklist->increment('comment_count');
         });
 
-        static::deleted(function ($comment) {
+        static::deleted(function ($item) {
             $item->checklist->decrement('comment_count');
         });
 

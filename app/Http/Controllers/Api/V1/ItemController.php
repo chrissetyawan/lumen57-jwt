@@ -45,6 +45,15 @@ class ItemController extends BaseController
         }
     }
 
+    public function show($checklistId, $id)
+    {
+        $item = Item::where('checklist_id', $checklistId)
+          ->where('id', $id)
+          ->paginate();
+
+        return $this->response->paginator($item, new ItemTransformer());
+    }
+
     public function store($checklistId, Request $request)
     {
         $validator = \Validator::make($request->all(), [
@@ -59,19 +68,19 @@ class ItemController extends BaseController
 
         $user = $this->user();
 
-        $comment = new Item;
-        $comment->content = $request->get('content');
-        $comment->user_id = $user->id;
-        $comment->post_id = $checklist->id;
-        $comment->save();
+        $item = new Item;
+        $item->content = $request->get('content');
+        $item->user_id = $user->id;
+        $item->post_id = $checklist->id;
+        $item->save();
 
-        return $this->response->item($comment, new ItemTransformer())
+        return $this->response->item($item, new ItemTransformer())
             ->setStatusCode(201);
     }
 
     public function destroy($checklistId, $id)
     {
-        $comment = Item::where('post_id', $checklistId)
+        $item = Item::where('checklist_id', $checklistId)
             ->where('id', $id)
             ->firstOrFail();
 

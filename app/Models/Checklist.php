@@ -22,6 +22,6 @@ class Checklist extends BaseModel
 
     public function recentItems($limit = 5)
     {
-        return $this->comments()->limit($limit);
+        return $this->items()->limit($limit);
     }
 }
